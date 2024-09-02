@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Gama Learn Chat App Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Gama Learn Chat App is a real-time chat application built using .NET 8, C#, SignalR at backend, react on front-end and SQLite as the database for real-time communication, JWT for authentication, and HangFire for job queuing and resending failed chats.
+
+## Steps To Use The Client App
+- Drop this url on brower to run the hosted app: https://corechatappclient-bgc7gsemh7h6cxhv.eastus-01.azurewebsites.net/
+- Signup or register as a user if it's your first time, or just login in if you are already registered.
+- you can use username: 'admin' and password: 'admin' since it's seeded to Db as default on first run.
+- once loggedIn all registered users are listed under personal tab and groups are listed under groups
+- their are three groups seeded as default and you can use those groups to do group discussions 
 
 ## Available Scripts
 
@@ -13,6 +20,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+Browes the app hosted.\
+- Open [[http://localhost:3000](https://corechatappclient-bgc7gsemh7h6cxhv.eastus-01.azurewebsites.net/)] to view it in your browser.
+- Open [https://corechatappclient-bgc7gsemh7h6cxhv.eastus-01.azurewebsites.net](https://corechatappclient-bgc7gsemh7h6cxhv.eastus-01.azurewebsites.net/) to viwe hosted app.
+
 
 ### `npm test`
 
