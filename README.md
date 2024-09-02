@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Gama Learn Chat App is a real-time chat application built using .NET 8, C#, SignalR at backend, react on front-end and SQLite as the database for real-time communication, JWT for authentication, and HangFire for job queuing and resending failed chats.
 
 ## Available Scripts
 
