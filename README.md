@@ -2,7 +2,7 @@
 
 Gama Learn Chat App is a real-time chat application built using .NET 8, C#, SignalR at backend, react on front-end and SQLite as the database for real-time communication, JWT for authentication, and HangFire for job queuing and resending failed chats.
 
-## Steps To Use The APP
+## Steps To Use The Client App
 - Drop this url on brower to run the hosted app: https://corechatappclient-bgc7gsemh7h6cxhv.eastus-01.azurewebsites.net/
 - Signup or register as a user if it's your first time, or just login in if you are already registered.
 - you can use username: 'admin' and password: 'admin' since it's seeded to Db as default on first run.
