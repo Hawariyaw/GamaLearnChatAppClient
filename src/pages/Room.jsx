@@ -16,7 +16,7 @@ function Home() {
     try {
       // Create a connection to the chat hub
       const connection = new HubConnectionBuilder()
-        .withUrl('https://corechatappapi-b7h4ckdhfnfdczbx.eastus-01.azurewebsites.net/chat')
+        .withUrl('http://localhost:5001/chat')
         .configureLogging(LogLevel.Information)
         .build();
 

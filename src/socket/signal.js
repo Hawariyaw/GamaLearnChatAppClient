@@ -23,23 +23,26 @@ export const signal = {
       console.error(error);
     }
   },
-  joinChatRoom: async function (fromUserName, toUserName) {
-    try {
+  joinChatRoom: async function (fromUserName, toUserName, isPrivate = true, prevChatRoom) {
+    try {      
       // Invoke the JoinSpecificChatRoom method with the object
       await this.connection.invoke("JoinSpecificChatRoom", {
         UserName: fromUserName,
-        ChatRoom: toUserName,
+        ChatRoom: isPrivate ? fromUserName + '_' +  toUserName : toUserName,
+        ToUserName: toUserName,
+        PrevChatRoom: prevChatRoom,
       });
     } catch (error) {
       console.log("Join Error", error);
     }
   },
-  sendMessage: async function (userName, message, chatRoom, isPrivate = true) {
+  sendMessage: async function (userName, message, toUserName, isPrivate = true) {
     try {
       // Create a Message object
       await this.connection.invoke("SendMessage", {
         UserName: userName,
-        ChatRoom: chatRoom,
+        ChatRoom: isPrivate ? toUserName + '_' + userName   : toUserName,
+        ToUserName: toUserName,
         Content: message,
         IsPrivate: isPrivate,
       });

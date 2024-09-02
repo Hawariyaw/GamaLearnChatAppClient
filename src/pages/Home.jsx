@@ -1,5 +1,15 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Container, Row, Col, Form, Button, InputGroup } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  InputGroup,
+  OverlayTrigger,
+  Popover
+} from "react-bootstrap";
+import EmojiPicker from "emoji-picker-react";
 
 // api
 import { getAllUsers } from "../api/user";
@@ -83,12 +93,12 @@ const Home = ({ onSignOut, userName = "" }) => {
 
   const onJoinRoom = useCallback(
     (toUserName, personal = false) => {
+      setMessages([]);
+      signal.joinChatRoom(userName, toUserName, personal, chatRoom.current.to);
       chatRoom.current = {
         to: toUserName,
         isPrivate: personal,
       };
-      setMessages([]);
-      signal.joinChatRoom(userName, toUserName);
       if (personal) {
         return getPersonalChat(toUserName);
       }
@@ -109,6 +119,10 @@ const Home = ({ onSignOut, userName = "" }) => {
     setMessage("");
   };
 
+  const onEmojiClick = (emojiObject) => {
+    setMessage(message + emojiObject.emoji);
+  }
+
   return (
     <Container fluid>
       <Header onSignOut={onSignOut} userName={userName} />
@@ -123,6 +137,7 @@ const Home = ({ onSignOut, userName = "" }) => {
             />
             <Groups
               groups={groups}
+              refreshGroups={getGroups}
               joinRoom={onJoinRoom}
               selected={chatRoom.current.to}
             />
@@ -135,6 +150,9 @@ const Home = ({ onSignOut, userName = "" }) => {
           <Col className="flex-grow-0">
             <Form onSubmit={handleSend}>
               <InputGroup className="mt-3" size="lg">
+              <OverlayTrigger placement="top" trigger="click" overlay={popover(onEmojiClick)}>
+                  <Button variant="outline-secondary">😀</Button>
+                </OverlayTrigger>
                 <Form.Control
                   placeholder="Type something here..."
                   aria-label="Type something here..."
@@ -155,5 +173,11 @@ const Home = ({ onSignOut, userName = "" }) => {
     </Container>
   );
 };
+
+const popover = (onEmojiClick) => (
+  <Popover id="popover-basic">
+      <EmojiPicker onEmojiClick={onEmojiClick}/>
+  </Popover>
+);
 
 export default Home;

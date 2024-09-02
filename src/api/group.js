@@ -8,3 +8,15 @@ export const getAllGroups = async () => {
     console.error(error);
   }
 };
+
+export const create = async (payload) => {
+  try {
+    const response = await api.post('/Group', payload);
+    if (response.status === 201 || response.status === 200) {
+      return true;
+    }
+    return false;
+  } catch (error) {
+    return false;
+  }
+};

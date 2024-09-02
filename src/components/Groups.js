@@ -1,9 +1,12 @@
 import React from "react";
-import Badge from "react-bootstrap/Badge";
 import ListGroup from "react-bootstrap/ListGroup";
 
-const Groups = ({ groups = [], joinRoom, selected }) => {
+import CreateGroup from "./CreateGroup";
+
+const Groups = ({ groups = [], joinRoom, selected, refreshGroups }) => {
   return (
+    <>
+    <CreateGroup refreshGroups={refreshGroups} />
     <ListGroup>
       {groups.map((group) => (
         <Group
@@ -14,6 +17,7 @@ const Groups = ({ groups = [], joinRoom, selected }) => {
         />
       ))}
     </ListGroup>
+    </>
   );
 };
 
