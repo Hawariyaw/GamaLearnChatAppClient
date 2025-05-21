@@ -233,6 +233,59 @@ body{
   }
 }
 
+/* Typing Indicator Styling */
+.typing-indicator {
+  font-size: 0.85em;
+  font-style: italic;
+  color: #6c757d; /* Bootstrap 'text-muted' color */
+  padding-left: 10px; /* Align with potential message indentation */
+  height: 20px; /* Reserve space to prevent layout shifts */
+  line-height: 20px; /* Vertically center text in the reserved height */
+  margin-bottom: 4px; /* Small margin below the indicator */
+}
+
+/* Custom Sidebar Tab Styling */
+/* Using .nav-pills in selector to increase specificity and reduce !important */
+.custom-sidebar-tabs.nav-pills .nav-item .nav-link {
+  color: #495057; /* Default tab text color */
+  border: none; /* Remove default borders */
+  /* For LTR, rounded left corners. For RTL, this would be right. */
+  border-radius: 0.25rem 0 0 0.25rem; 
+  text-align: left; /* Align text to the left, common for vertical tabs */
+  padding: 0.5rem 1rem; /* Standard padding */
+}
+
+.custom-sidebar-tabs.nav-pills .nav-item .nav-link:hover {
+  background-color: #e9ecef; /* Hover color */
+  color: #007bff; /* Optional: change text color on hover */
+}
+
+.custom-sidebar-tabs.nav-pills .nav-item .nav-link.active {
+  background-color: #007bff;
+  color: white;
+  /* Prominent left border for active tab, implies vertical layout */
+  border-left: 4px solid #0056b3; 
+  /* Remove other borders to keep it clean */
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  font-weight: bold;
+  /* Adjust border-radius if it was set for non-active tabs to ensure consistency */
+  border-radius: 0; /* Or match the non-active tabs if they have specific rounding */
+}
+
+/* Ensure tabs are displayed as block elements for full-width clickable area */
+/* This is important for vertical tabs */
+.custom-sidebar-tabs.nav-pills .nav-item { /* Keep .nav-pills for consistency in selector scheme */
+  width: 100%; /* Makes each tab take full width in a vertical layout */
+}
+
+/* Adjustments for icon alignment and spacing */
+.custom-sidebar-tabs.nav-pills .nav-item .nav-link svg { /* Keep .nav-pills for consistency */
+  margin-right: 8px; /* Space between icon and text */
+  vertical-align: middle; /* Align icon nicely with text */
+}
+
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   .chat-app .chat-list {
       height: 650px;
